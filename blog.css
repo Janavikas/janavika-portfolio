@@ -11,12 +11,11 @@ html{
 }
 
 body{
-
     min-height:100vh;
     overflow-x:hidden;
     position:relative;
-
     font-family:"Poppins",sans-serif;
+    -webkit-font-smoothing:antialiased;
 
     background:linear-gradient(
         -45deg,
@@ -31,241 +30,162 @@ body{
 }
 
 @keyframes gradientShift{
-
-    0%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0% 50%;
-    }
-
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
-/* Glowing background blobs */
+/* Background blobs */
 
 body::before,
 body::after{
-
     content:"";
     position:fixed;
     border-radius:50%;
     filter:blur(120px);
     z-index:-1;
-
+    pointer-events:none;
 }
 
 body::before{
-
     width:550px;
     height:550px;
-
     background:rgba(194,214,170,.18);
-
     top:-180px;
     left:-150px;
-
     animation:blob1 15s ease-in-out infinite alternate;
-
 }
 
 body::after{
-
     width:500px;
     height:500px;
-
     background:rgba(130,170,120,.20);
-
     bottom:-150px;
     right:-120px;
-
     animation:blob2 18s ease-in-out infinite alternate;
-
 }
 
 @keyframes blob1{
-
     to{
         transform:translate(60px,40px) scale(1.15);
     }
-
 }
 
 @keyframes blob2{
-
     to{
         transform:translate(-60px,-40px) scale(1.1);
     }
-
 }
 
 /* HEADER */
 
 header{
-
     position:fixed;
     top:25px;
     right:40px;
-
     z-index:1000;
-
 }
 
 nav ul{
-
     display:flex;
     list-style:none;
     gap:20px;
-
 }
 
 nav a{
-
     text-decoration:none;
     color:#edfce8;
     padding:10px 22px;
     border-radius:999px;
     background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.12);
+    -webkit-backdrop-filter:blur(10px);
     backdrop-filter:blur(10px);
     transition:.35s;
     font-size:1.05rem;
-
 }
 
 nav a:hover{
-
     background:#edfce8;
     color:#2d3a2d;
     transform:translateY(-3px);
     box-shadow:0 12px 30px rgba(0,0,0,.18);
-
 }
 
 /* MAIN */
 
 .container{
-
     width:min(700px,90%);
     margin-left:12%;
-
     padding-top:170px;
     padding-bottom:140px;
-
     animation:fadeUp 1s ease;
-
 }
 
 @keyframes fadeUp{
-
-from{
-
-    opacity:0;
-    transform:translateY(30px);
-
-}
-
-to{
-
-    opacity:1;
-    transform:translateY(0);
-
-}
-
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .progress-card{
-
     background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.15);
-
+    -webkit-backdrop-filter:blur(15px);
     backdrop-filter:blur(15px);
-
     padding:45px;
     border-radius:25px;
-
     color:#edfce8;
-
     text-align:center;
-
     box-shadow:0 20px 50px rgba(0,0,0,.15);
-
 }
-
 
 .progress-card h1{
-
     font-size:3rem;
     margin-bottom:20px;
-
 }
 
-
 .progress-card p{
-
     font-size:1.1rem;
     line-height:1.8;
     opacity:.85;
-
 }
-
 
 .progress-card h3{
-
     margin-top:25px;
     font-weight:500;
-
 }
-
 
 .small{
-
     font-size:.9rem !important;
     opacity:.6 !important;
-
 }
 
-
-/* Loading animation */
+/* Loader */
 
 .loader{
-
     margin:35px auto 15px;
-
     width:70px;
     height:70px;
-
     border-radius:50%;
-
     border:5px solid rgba(255,255,255,.2);
     border-top-color:#edfce8;
-
     animation:spin 1.5s linear infinite;
-
 }
-
 
 @keyframes spin{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
 }
-
 
 /* Scroll */
 
 .scroll{
-
     position:fixed;
     bottom:55px;
     left:50%;
@@ -275,102 +195,118 @@ to{
     font-size:.9rem;
     letter-spacing:2px;
     animation:bounce 2s infinite;
-
 }
 
 @keyframes bounce{
-
     0%,100%{
-
         transform:translate(-50%,0);
-
     }
 
     50%{
-
         transform:translate(-50%,8px);
-
     }
-
 }
 
-footer{
+/* Footer */
 
+footer{
     text-align:center;
     color:rgba(255,255,255,.6);
     font-size:.9rem;
     padding:25px;
     border-top:1px solid rgba(255,255,255,.08);
     background:rgba(255,255,255,.02);
+    -webkit-backdrop-filter:blur(10px);
     backdrop-filter:blur(10px);
-
 }
 
 .socials{
-
     display:inline-flex;
     gap:15px;
     margin-left:15px;
     vertical-align:middle;
-
 }
 
-
 .socials a{
-
     color:#edfce8;
     font-size:1.2rem;
     transition:.3s;
-
 }
-
 
 .socials a:hover{
-
     color:#91a579;
     transform:translateY(-3px);
-
 }
+
+/* Mobile */
 
 @media (max-width:768px){
 
-    header{
+    body::before,
+    body::after{
+        width:280px;
+        height:280px;
+        filter:blur(70px);
+        opacity:.35;
+    }
 
+    header{
         position:static;
         padding:20px 0;
-
     }
 
     nav{
-
         display:flex;
         justify-content:center;
-
     }
 
     nav ul{
-
-        display:flex;
         flex-wrap:wrap;
         justify-content:center;
         gap:10px;
-
     }
 
     nav a{
-
         padding:8px 14px;
         font-size:.9rem;
         white-space:nowrap;
-
     }
 
     .container{
-
         width:90%;
         margin:auto;
         padding-top:40px;
-
+        padding-bottom:80px;
     }
 
+    .progress-card{
+        padding:28px 20px;
+        border-radius:18px;
+    }
+
+    .progress-card h1{
+        font-size:2rem;
+    }
+
+    .progress-card p{
+        font-size:1rem;
+        line-height:1.7;
+    }
+
+    .progress-card h3{
+        font-size:1rem;
+    }
+
+    .loader{
+        width:55px;
+        height:55px;
+    }
+
+    .scroll{
+        display:none;
+    }
+
+    footer{
+        font-size:.8rem;
+    }
 }
