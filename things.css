@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:linear-gradient(
+        -45deg,
+        #2d3a2d,
+        #3d4b3c,
+        #55634f,
+        #273225
+    );
+
+    background-size:400% 400%;
+    animation:gradientShift 18s ease infinite;
+
+    color:white;
+}
+
+@keyframes gradientShift{
+
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+
+}
+
+body::before,
+body::after{
+
+    content:"";
+    position:fixed;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-1;
+
+}
+
+body::before{
+
+    width:550px;
+    height:550px;
+    background:rgba(194,214,170,.18);
+    top:-180px;
+    left:-150px;
+
+}
+
+body::after{
+
+    width:500px;
+    height:500px;
+    background:rgba(130,170,120,.20);
+    bottom:-150px;
+    right:-120px;
+
+}
+
+/* NAVBAR */
+
+header{
+
+    position:fixed;
+    top:25px;
+    right:40px;
+    z-index:100;
+
+}
+
+nav ul{
+
+    display:flex;
+    gap:20px;
+    list-style:none;
+
+}
+
+nav a{
+
+    text-decoration:none;
+    color:#edfce8;
+    padding:10px 22px;
+    border-radius:999px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(10px);
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    background:#edfce8;
+    color:#2d3a2d;
+
+}
+
+/* HERO */
+
+.hero{
+
+    text-align:center;
+    padding:160px 20px 70px;
+
+}
+
+.hero h1{
+
+    font-size:4rem;
+    color:#edfce8;
+    margin-bottom:25px;
+    font-style:italic;
+
+}
+
+
+.hero p{
+
+    max-width:700px;
+    margin:auto;
+
+    line-height:1.8;
+
+    font-size:1.1rem;
+
+    color:#edfce8;
+
+}
+
+.learning{
+    width:fit-content;
+    margin:45px auto 60px;
+    text-align:center;
+}
+
+.learning h3{
+    color:#edfce8;
+    font-size:1rem;
+    font-weight:500;
+    letter-spacing:1px;
+    margin-bottom:12px;
+}
+
+.bar{
+    width:220px;
+    height:8px;
+    background:rgba(255,255,255,.12);
+    border-radius:999px;
+    overflow:hidden;
+    margin:12px auto;
+}
+
+.fill{
+    width:90%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        #d9f5ce,
+        #9fc48c
+    );
+    border-radius:999px;
+}
+
+.learning p{
+    color:rgba(255,255,255,.75);
+    font-size:.95rem;
+}
+
+/* GRID */
+
+.grid{
+
+    width:min(1200px,90%);
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+    padding-bottom:80px;
+
+}
+
+/* CARDS */
+
+.card{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:22px;
+
+    padding:30px;
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+
+}
+
+.card h2{
+
+    margin-bottom:20px;
+
+    color:#edfce8;
+
+    font-size:1.4rem;
+
+}
+
+.card ul{
+
+    list-style:none;
+
+}
+
+.card li{
+
+    padding:8px 0;
+
+    color:#f4f4f4;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.card li:last-child{
+
+    border-bottom:none;
+
+}
+
+/* Scroll */
+
+.scroll{
+
+    position:fixed;
+    bottom:55px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#edfce8;
+    opacity:.7;
+    font-size:.9rem;
+    letter-spacing:2px;
+    animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+
+        transform:translate(-50%,0);
+
+    }
+
+    50%{
+
+        transform:translate(-50%,8px);
+
+    }
+
+}
+
+/* FOOTER */
+
+footer{
+
+    text-align:center;
+    color:rgba(255,255,255,.6);
+    font-size:.9rem;
+    padding:25px;
+    border-top:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.02);
+    backdrop-filter:blur(10px);
+
+}
+
+.socials{
+
+    display:inline-flex;
+    gap:15px;
+    margin-left:15px;
+    vertical-align:middle;
+
+}
+
+
+.socials a{
+
+    color:#edfce8;
+    font-size:1.2rem;
+    transition:.3s;
+
+}
+
+
+.socials a:hover{
+
+    color:#91a579;
+    transform:translateY(-3px);
+
+}
