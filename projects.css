@@ -11,15 +11,12 @@ html{
 }
 
 body{
-
     min-height:100vh;
     overflow-x:hidden;
     position:relative;
     isolation:isolate;
-
     font-family:"Poppins",sans-serif;
     -webkit-font-smoothing:antialiased;
-
     background:linear-gradient(
         -45deg,
         #2d3a2d,
@@ -27,22 +24,18 @@ body{
         #55634f,
         #273225
     );
-
     background-size:250% 250%;
     animation:gradientShift 30s linear infinite;
-
 }
+
 @keyframes gradientShift{
     0%{background-position:0% 50%;}
     50%{background-position:100% 50%;}
     100%{background-position:0% 50%;}
 }
 
-/* Background Blobs */
-
 body::before,
 body::after{
-
     content:"";
     position:absolute;
     border-radius:50%;
@@ -50,7 +43,6 @@ body::after{
     opacity:.35;
     pointer-events:none;
     z-index:-1;
-
 }
 
 body::before{
@@ -72,18 +64,12 @@ body::after{
 }
 
 @keyframes blob1{
-    to{
-        transform:translate(60px,40px) scale(1.15);
-    }
+    to{ transform:translate(60px,40px) scale(1.15); }
 }
 
 @keyframes blob2{
-    to{
-        transform:translate(-60px,-40px) scale(1.1);
-    }
+    to{ transform:translate(-60px,-40px) scale(1.1); }
 }
-
-/* Header */
 
 header{
     position:fixed;
@@ -116,8 +102,6 @@ nav a:hover{
     transform:translateY(-3px);
 }
 
-/* Main */
-
 .container{
     width:min(780px,90%);
     margin-left:12%;
@@ -127,15 +111,8 @@ nav a:hover{
 }
 
 @keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{ opacity:0; transform:translateY(30px); }
+    to{ opacity:1; transform:translateY(0); }
 }
 
 h1{
@@ -220,8 +197,6 @@ h1{
     font-style:italic;
 }
 
-/* Scroll */
-
 .scroll{
     position:fixed;
     bottom:55px;
@@ -235,16 +210,9 @@ h1{
 }
 
 @keyframes bounce{
-    0%,100%{
-        transform:translate(-50%,0);
-    }
-
-    50%{
-        transform:translate(-50%,8px);
-    }
+    0%,100%{ transform:translate(-50%,0); }
+    50%{ transform:translate(-50%,8px); }
 }
-
-/* Footer */
 
 footer{
     text-align:center;
@@ -283,13 +251,13 @@ footer{
     body::after{
         width:280px;
         height:280px;
-        filter:blur(70px);
-        opacity:.35;
+        filter:blur(60px);
+        opacity:.25;
     }
 
     header{
         position:static;
-        padding:20px 0;
+        padding: calc(20px + env(safe-area-inset-top)) 0 10px;
     }
 
     nav{
@@ -312,7 +280,7 @@ footer{
     .container{
         width:90%;
         margin:auto;
-        padding-top:40px;
+        padding-top:70px;
         padding-bottom:80px;
     }
 
@@ -343,13 +311,5 @@ footer{
 
     footer{
         font-size:.8rem;
-    }
-
-    body::before,
-    body::after{
-        width:280px;
-        height:280px;
-        filter:blur(60px);
-        opacity:.25;
     }
 }
