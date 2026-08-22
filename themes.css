@@ -1,0 +1,164 @@
+/* =========================
+   DARK THEME OVERRIDES
+   (default/light = your original CSS, untouched)
+========================= */
+
+html[data-theme="dark"] body {
+    background: linear-gradient(
+        -45deg,
+        #0a0f0a,
+        #10160f,
+        #161d15,
+        #080b08
+    );
+    background-size: 250% 250%;
+}
+
+html[data-theme="dark"] body::before {
+    background: rgba(80, 110, 70, 0.15);
+}
+
+html[data-theme="dark"] body::after {
+    background: rgba(60, 90, 55, 0.15);
+}
+
+/* Nav */
+html[data-theme="dark"] nav a {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] nav a:hover {
+    background: #ffffff;
+    color: #0a0f0a;
+}
+
+/* Headings & text */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] .heading,
+html[data-theme="dark"] .heading span,
+html[data-theme="dark"] .progress-card h1,
+html[data-theme="dark"] .progress-card h3,
+html[data-theme="dark"] .project-card h2,
+html[data-theme="dark"] .card h2,
+html[data-theme="dark"] .hero h1 {
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .intro,
+html[data-theme="dark"] .hero p,
+html[data-theme="dark"] .description,
+html[data-theme="dark"] .progress-card p,
+html[data-theme="dark"] .card li,
+html[data-theme="dark"] .learning p,
+html[data-theme="dark"] .learning h3 {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+html[data-theme="dark"] .date,
+html[data-theme="dark"] .small,
+html[data-theme="dark"] .current,
+html[data-theme="dark"] footer {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* Cards */
+html[data-theme="dark"] .progress-card,
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .tech span,
+html[data-theme="dark"] .connect-links a {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .connect-links a:hover {
+    background: #ffffff;
+    color: #0a0f0a;
+}
+
+/* Footer */
+html[data-theme="dark"] footer {
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+html[data-theme="dark"] .socials a {
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .socials a:hover {
+    color: #9fc48c;
+}
+
+/* Scroll indicator */
+html[data-theme="dark"] .scroll {
+    color: #ffffff;
+}
+
+/* Loader */
+html[data-theme="dark"] .loader {
+    border: 5px solid rgba(255, 255, 255, 0.12);
+    border-top-color: #ffffff;
+}
+
+/* Learning bar */
+html[data-theme="dark"] .bar {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .fill {
+    background: linear-gradient(90deg, #6b8f5a, #3d5c33);
+}
+
+/* =========================
+   TOGGLE BUTTON (both themes)
+========================= */
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #edfce8;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transition: 0.35s;
+    font-size: 1.1rem;
+}
+
+.theme-toggle:hover {
+    background: #edfce8;
+    color: #2d3a2d;
+    transform: translateY(-3px);
+}
+
+html[data-theme="dark"] .theme-toggle {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+    background: #ffffff;
+    color: #0a0f0a;
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}

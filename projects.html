@@ -2,10 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <script>
+            document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+        </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         <title>Janavika Portfolio</title>
         <link rel="icon" type="image/png" href="icons/cookie.png">
         <link rel="stylesheet" href="projects.css">
+        <link rel="stylesheet" href="themes.css">
+        <script src="all.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     </head>
@@ -20,6 +25,7 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="things.html">Learning Log</a></li>
+                <li><button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
             </ul>
         </nav>
     </header>
