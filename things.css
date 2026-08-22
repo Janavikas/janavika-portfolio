@@ -1,324 +1,513 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
 }
 
-body{
-    min-height:100vh;
-    overflow-x:hidden;
-    position:relative;
-    isolation:isolate;
-    font-family:"Poppins",sans-serif;
-    -webkit-font-smoothing:antialiased;
-    background:linear-gradient(
+/* =========================
+   BODY
+========================= */
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
+
+    font-family: "Poppins", sans-serif;
+    -webkit-font-smoothing: antialiased;
+
+    background: linear-gradient(
         -45deg,
         #2d3a2d,
         #3d4b3c,
         #55634f,
         #273225
     );
-    background-size:250% 250%;
-    animation:gradientShift 30s linear infinite;
+
+    background-size: 250% 250%;
+    animation: gradientShift 30s linear infinite;
 }
 
-@keyframes gradientShift{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 body::before,
-body::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    filter:blur(80px);
-    opacity:.35;
-    pointer-events:none;
-    z-index:-1;
+body::after {
+    content: "";
+
+    position: fixed; /* prevents blobs from creating extra page height */
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0.35;
+
+    pointer-events: none;
+
+    z-index: -1;
 }
 
-body::before{
-    width:550px;
-    height:550px;
-    background:rgba(194,214,170,.18);
-    top:-180px;
-    left:-150px;
+body::before {
+    width: 550px;
+    height: 550px;
+
+    background: rgba(194, 214, 170, 0.18);
+
+    top: -180px;
+    left: -150px;
 }
 
-body::after{
-    width:500px;
-    height:500px;
-    background:rgba(130,170,120,.20);
-    bottom:-150px;
-    right:-120px;
+body::after {
+    width: 500px;
+    height: 500px;
+
+    background: rgba(130, 170, 120, 0.20);
+
+    bottom: -150px;
+    right: -120px;
 }
 
-header{
-    position:fixed;
-    top:25px;
-    right:40px;
-    z-index:100;
+/* =========================
+   NAVBAR
+========================= */
+
+header {
+    position: fixed;
+
+    top: 25px;
+    right: 40px;
+
+    z-index: 1000;
 }
 
-nav ul{
-    display:flex;
-    gap:20px;
-    list-style:none;
+nav ul {
+    display: flex;
+
+    gap: 20px;
+
+    list-style: none;
 }
 
-nav a{
-    text-decoration:none;
-    color:#edfce8;
-    padding:10px 22px;
-    border-radius:999px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.12);
-    -webkit-backdrop-filter:blur(10px);
-    backdrop-filter:blur(10px);
-    transition:.3s;
+nav a {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: #edfce8;
+
+    padding: 10px 22px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+
+    font-size: 1.05rem;
 }
 
-nav a:hover{
-    background:#edfce8;
-    color:#2d3a2d;
+nav a:hover {
+    color: #91a579;
+
+    background: rgba(237, 252, 232, 0.9);
+
+    transform: translateY(-3px);
 }
 
-.hero{
-    text-align:center;
-    padding:160px 20px 70px;
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    text-align: center;
+
+    padding: 160px 20px 70px;
 }
 
-.hero h1{
-    font-size:4rem;
-    color:#edfce8;
-    margin-bottom:25px;
-    font-style:italic;
+.hero h1 {
+    font-size: 4rem;
+
+    color: #edfce8;
+
+    margin-bottom: 25px;
+
+    font-style: italic;
 }
 
-.hero p{
-    max-width:700px;
-    margin:auto;
-    line-height:1.8;
-    font-size:1.1rem;
-    color:#edfce8;
+.hero p {
+    max-width: 700px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    font-size: 1.1rem;
+
+    color: #edfce8;
 }
 
-.learning{
-    width:fit-content;
-    margin:45px auto 60px;
-    text-align:center;
+/* =========================
+   CURRENTLY EXPLORING
+========================= */
+
+.learning {
+    width: fit-content;
+
+    margin: 45px auto 60px;
+
+    text-align: center;
 }
 
-.learning h3{
-    color:#edfce8;
-    font-size:1rem;
-    font-weight:500;
-    letter-spacing:1px;
-    margin-bottom:12px;
+.learning h3 {
+    color: #edfce8;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 12px;
 }
 
-.bar{
-    width:220px;
-    height:8px;
-    background:rgba(255,255,255,.12);
-    border-radius:999px;
-    overflow:hidden;
-    margin:12px auto;
+.bar {
+    width: 220px;
+
+    height: 8px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+    margin: 12px auto;
 }
 
-.fill{
-    width:90%;
-    height:100%;
-    background:linear-gradient(
+.fill {
+    width: 90%;
+
+    height: 100%;
+
+    background: linear-gradient(
         90deg,
         #d9f5ce,
         #9fc48c
     );
-    border-radius:999px;
+
+    border-radius: 999px;
 }
 
-.learning p{
-    color:rgba(255,255,255,.75);
-    font-size:.95rem;
+.learning p {
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 0.95rem;
 }
 
-.grid{
-    width:min(1200px,90%);
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:35px;
-    padding-bottom:80px;
+/* =========================
+   CARDS
+========================= */
+
+.grid {
+    width: min(1200px, 90%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 35px;
+
+    padding-bottom: 80px;
+
+    flex: 1;
 }
 
-.card{
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.12);
-    -webkit-backdrop-filter:blur(10px);
-    backdrop-filter:blur(10px);
-    border-radius:22px;
-    padding:30px;
-    transition:.35s;
+.card {
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    transition: 0.35s;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 50px rgba(0,0,0,.2);
+.card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
-.card h2{
-    margin-bottom:20px;
-    color:#edfce8;
-    font-size:1.4rem;
+.card h2 {
+    margin-bottom: 20px;
+
+    color: #edfce8;
+
+    font-size: 1.4rem;
 }
 
-.card ul{
-    list-style:none;
+.card ul {
+    list-style: none;
 }
 
-.card li{
-    padding:8px 0;
-    color:#f4f4f4;
-    border-bottom:1px solid rgba(255,255,255,.08);
+.card li {
+    padding: 8px 0;
+
+    color: #f4f4f4;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
 }
 
-.card li:last-child{
-    border-bottom:none;
+.card li:last-child {
+    border-bottom: none;
 }
 
-.scroll{
-    position:fixed;
-    bottom:55px;
-    left:50%;
-    transform:translateX(-50%);
-    color:#edfce8;
-    opacity:.7;
-    font-size:.9rem;
-    letter-spacing:2px;
-    animation:bounce 2s infinite;
+/* =========================
+   SCROLL INDICATOR
+========================= */
+
+.scroll {
+    position: fixed;
+
+    bottom: 55px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #edfce8;
+
+    opacity: 0.7;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 2px;
+
+    animation: bounce 2s infinite;
 }
 
-@keyframes bounce{
-    0%,100%{ transform:translate(-50%,0); }
-    50%{ transform:translate(-50%,8px); }
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 8px);
+    }
 }
 
-footer{
-    text-align:center;
-    color:rgba(255,255,255,.6);
-    font-size:.9rem;
-    padding:25px;
-    border-top:1px solid rgba(255,255,255,.08);
-    background:rgba(255,255,255,.02);
-    -webkit-backdrop-filter:blur(10px);
-    backdrop-filter:blur(10px);
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: auto;
+
+    width: 100%;
+
+    flex-shrink: 0;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 0.9rem;
+
+    padding: 25px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.02);
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
-.socials{
-    display:inline-flex;
-    gap:15px;
-    margin-left:15px;
-    vertical-align:middle;
+.socials {
+    display: inline-flex;
+
+    gap: 15px;
+
+    margin-left: 15px;
+
+    vertical-align: middle;
 }
 
-.socials a{
-    color:#edfce8;
-    font-size:1.2rem;
-    transition:.3s;
+.socials a {
+    color: #edfce8;
+
+    font-size: 1.2rem;
+
+    transition: 0.3s;
 }
 
-.socials a:hover{
-    color:#91a579;
-    transform:translateY(-3px);
+.socials a:hover {
+    color: #91a579;
+
+    transform: translateY(-3px);
 }
 
-/* Mobile */
+/* =========================
+   MOBILE
+========================= */
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 
     body::before,
-    body::after{
-        width:280px;
-        height:280px;
-        filter:blur(60px);
-        opacity:.25;
+    body::after {
+        width: 280px;
+
+        height: 280px;
+
+        filter: blur(60px);
+
+        opacity: 0.25;
     }
 
-    header{
-        position:static;
-        padding: calc(20px + env(safe-area-inset-top)) 0 10px;
+    /* Navbar */
+
+    header {
+        position: static;
+
+        padding:
+            calc(20px + env(safe-area-inset-top))
+            0
+            10px;
     }
 
-    nav{
-        display:flex;
-        justify-content:center;
+    nav {
+        display: flex;
+
+        justify-content: center;
     }
 
-    nav ul{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:10px;
+    nav ul {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 10px;
     }
 
-    nav a{
-        padding:8px 14px;
-        font-size:.9rem;
-        white-space:nowrap;
+    nav a {
+        padding: 8px 14px;
+
+        font-size: 0.9rem;
+
+        white-space: nowrap;
     }
 
-    .hero{
-        padding:90px 20px 40px;
+    /* Hero */
+
+    .hero {
+        padding: 90px 20px 40px;
     }
 
-    .hero h1{
-        font-size:2.5rem;
+    .hero h1 {
+        font-size: 2.5rem;
     }
 
-    .hero p{
-        font-size:1rem;
-        line-height:1.7;
+    .hero p {
+        font-size: 1rem;
+
+        line-height: 1.7;
     }
 
-    .learning{
-        margin:35px auto 45px;
+    /* Learning */
+
+    .learning {
+        margin: 35px auto 45px;
     }
 
-    .bar{
-        width:180px;
+    .bar {
+        width: 180px;
     }
 
-    .grid{
-        width:90%;
-        grid-template-columns:1fr;
-        gap:20px;
-        padding-bottom:60px;
+    /* Cards */
+
+    .grid {
+        width: 90%;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding-bottom: 60px;
     }
 
-    .card{
-        padding:22px;
+    .card {
+        padding: 22px;
     }
 
-    .card h2{
-        font-size:1.2rem;
+    .card h2 {
+        font-size: 1.2rem;
     }
 
-    .card li{
-        font-size:.95rem;
+    .card li {
+        font-size: 0.95rem;
     }
 
-    .scroll{
-        display:none;
+    /* Hide scroll indicator */
+
+    .scroll {
+        display: none;
     }
 
-    footer{
-        font-size:.8rem;
+    /* Footer */
+
+    footer {
+        font-size: 0.8rem;
+
+        padding: 20px;
     }
 }
