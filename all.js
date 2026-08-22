@@ -9,7 +9,7 @@ function toggleTheme() {
 
 function updateIcon(theme) {
     const btn = document.getElementById('theme-toggle');
-    if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    if (btn) btn.textContent = theme === 'light' ? '⏾' : '☀︎';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
